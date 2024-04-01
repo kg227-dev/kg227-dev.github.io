@@ -1,0 +1,898 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Kush Gulati</title><style>
+
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+
+/* Adjustments for responsive and aesthetically pleasing layouts */
+@media only screen and (max-width: 1600px) {
+  body {
+    margin: 1em;
+  }
+
+  .column-list {
+    flex-direction: column;
+  }
+
+  .column {
+    width: 100%;
+    padding: 0 0 1em;
+  }
+}
+
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+/* Styling for when input is checked */
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Toggle icon (sun/moon) */
+.toggle-icon {
+  position: absolute;
+  top: -8px; /* Adjust the top positioning to align vertically */
+  right: 28px; /* Move the icon to the right of the slider */
+  font-size: 32px;
+  transition: right 0.4s ease-in-out; /* Animate the right property */
+}
+
+/* Adjust icon position when toggle is checked */
+input:checked ~ .slider + .toggle-icon {
+  right: 3px; /* New position for the icon when toggle is checked */
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 1400px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+  /* Existing CSS */
+  /* Place your current CSS here. It seems you already have some, so just add the dark mode CSS below. */
+
+  /* Dark Mode CSS */
+  body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+  }
+
+  .dark-mode a, .dark-mode a.visited {
+    color: #bb86fc;
+  }
+
+/* Dark Mode CSS updates for specific box */
+.dark-mode .block-color-gray_background, .dark-mode .callout {
+  background-color: #333; /* Dark background for dark mode */
+  color: #e0e0e0; /* Light text color for dark mode */
+}
+
+
+
+/* Color Scheme */
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #50E3C2;
+    --background-color: #FAFAFA;
+    --text-color: #333;
+    --callout-light-bg: #B2F2BB; /* Light green for callout */
+    --callout-dark-bg: #087F23; /* Dark green for callout */
+}
+
+/* Links */
+a, .link-to-page {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* General Adjustments */
+body {
+    line-height: 1.6;
+}
+
+/* Section & Callout Background */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #E0E0E0;
+}
+
+.dark-mode a, .dark-mode a.visited {
+    color: #BB86FC;
+}
+
+/* Light Mode Specific Styles */
+.callout {
+  border-radius: 3px;
+  padding: 1rem;
+  background-color: #B2F2BB; /* Light green background for light mode */
+}
+
+/* Dark Mode Specific Styles */
+body.dark-mode .callout {
+  background-color: #087F23; /* Dark green background for dark mode */
+  color: #E0E0E0; /* Ensuring text color is light for dark mode */
+}
+
+
+/* Print Adjustments - Ensuring backgrounds print */
+@media print {
+    body {
+        color: #000;
+        background-color: #FFF;
+    }
+}
+
+</style></head><body><article id="881f4a8d-b2c8-4c54-a5d3-1103ff19c8a6" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1483653364400-eedcfb9f1f88?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 40.21%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">👤</span></div><h1 class="page-title">Kush Gulati</h1><p class="page-description"></p></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f748f166-dea7-4923-bbe0-4778f39e6661"><div style="font-size:1.5em"><span class="icon">👋🏽</span></div><div style="width:100%">Hi! I&#x27;m a <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>recent graduate </strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>from<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong> Duke University</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> who studied <strong>biomedical engineering </strong>and <strong>bioinformatics</strong>. Interested in working on <strong>business-related challenges</strong> in the <strong>pharmaceutical, medical devices</strong> and <strong>digital health industries</strong>. <strong>Actively seeking opportunities</strong> related to <strong>consulting</strong>, <strong>startups</strong>, and <strong>venture capital</strong>. 📍Currently based in <strong>New Jersey.</strong></div></figure><hr id="1036c257-0c9e-467d-8546-0a5524085e23"/><div id="0ee9b687-ab4b-4076-95d1-aeed9e17b3ff" class="column-list"><div id="3b706dad-ef32-4006-9fb8-e0d2d24cd337" style="width:43.75%" class="column"><figure id="161c1b10-4589-4d1e-81e4-438a3de0df20" class="image" style="text-align:center"><a href="Kush%20Gulati%20881f4a8db2c84c54a5d31103ff19c8a6/side_headshot_cropped.jpg"><img style="width:288px" src="Kush%20Gulati%20881f4a8db2c84c54a5d31103ff19c8a6/side_headshot_cropped.jpg"/></a></figure></div><div id="6b830301-bd55-4e35-9a0a-7dc2dba9a3e5" style="width:56.25%" class="column"><h2 id="97a7d5a2-638e-4742-a461-80c9de7d9e8a" class=""> 🔗 My Links</h2><hr id="bea0e03e-c707-4ef0-9418-b18b55223ca8"/><figure id="30200d29-49f0-4c22-af7c-9a448d9c57cf" class="link-to-page"><a href="Kush%20Gulati%20881f4a8db2c84c54a5d31103ff19c8a6/Let%E2%80%99s%20Talk%2030200d2949f04c22af7c9a448d9c57cf.html"><span class="icon">📞</span>Let’s Talk</a></figure><figure id="becb9ae1-67a5-4450-9d8e-e2d9f318440f" class="link-to-page"><a href="Kush%20Gulati%20881f4a8db2c84c54a5d31103ff19c8a6/Things%20I%E2%80%99m%20Reading%20becb9ae167a544509d8ee2d9f318440f.html"><span class="icon">📖</span>Things I’m Reading</a></figure><figure id="da048f1e-4767-4fb9-b76b-0dd892f5034f" class="link-to-page"><a href="Kush%20Gulati%20881f4a8db2c84c54a5d31103ff19c8a6/Resume%20da048f1e47674fb9b76b0dd892f5034f.html"><span class="icon">📝</span>Resume</a></figure><p id="00e0bb29-e0c2-45aa-b90a-29d84a3af3c7" class="">
+	<label class="switch" style="position: fixed; top: 30px; left: 50px; z-index: 1000;">
+		<input type="checkbox" id="modeToggle" onchange="toggleDarkMode()">
+		<span class="slider round"></span>
+		<span id="toggleIcon" class="toggle-icon"></span> <!-- Default icon for light mode -->
+	</label>
+	  
+
+</p></div></div><hr id="c46aa107-0752-483e-954c-9ab98d0aee19"/><div id="15ae744c-9d6f-4dde-875b-6da6c0a1afd0" class="column-list"><div id="78a9bede-26e7-4312-90b1-5934405e109a" style="width:43.75%" class="column"><h2 id="7af459ff-c7b0-48f0-9a22-36a7f17cae7d" class="block-color-default">🏫 Education</h2><ul id="777aeeb8-0ee1-4236-a876-5d24043aa6a4" class="toggle"><li><details><summary>🎓 <strong>Biomedical Engineering @ </strong><span style="border-bottom:0.05em solid"><strong><a href="http://duke.edu">Duke</a></strong></span> </summary><ul id="6a9ee433-eb9f-42b5-80a0-2d6c0d95d00a" class="bulleted-list"><li style="list-style-type:disc">Graduated as a <span style="border-bottom:0.05em solid"><a href="https://bme.duke.edu/undergrad/bme-design-fellows"><strong>BME Design Fellow</strong></a></span></li></ul><ul id="bb8d5030-75ca-412d-87a7-cd8fc4ba348d" class="bulleted-list"><li style="list-style-type:disc"><strong>Minor:</strong> Computational Biology &amp; Bioinformatics</li></ul></details></li></ul><ul id="c6155785-515f-4468-9eac-5efff2ba4439" class="toggle"><li><details><summary>🔜 <strong>MBA @ </strong><span style="border-bottom:0.05em solid"><a href="https://www.kellogg.northwestern.edu/"><strong>Northwestern Kellogg</strong></a></span><strong> </strong> </summary><ul id="6c0c0c91-6d6d-4553-b1fb-f0afa1ae39bb" class="bulleted-list"><li style="list-style-type:disc"><strong>Deferred Admit</strong> to <strong><a href="https://www.kellogg.northwestern.edu/programs/full-time-mba/kfl-deferred-enrollment-program.aspx">Kellogg Future Leaders Program</a></strong></li></ul><ul id="5415c493-710e-42e8-997c-17a2c42778b1" class="bulleted-list"><li style="list-style-type:disc">Expected to matriculate between <strong>Fall 2025 - Fall 2027</strong></li></ul></details></li></ul><p id="4d984002-3b2d-455f-be00-129e2b0f8ab2" class="">
+</p><p id="63290be3-0e00-454f-9f4f-c9618b8ca436" class="">
+</p><p id="e00be093-b465-4bb0-9758-a507aaa4904f" class="">
+</p></div><div id="164d6fed-b7d3-4c9c-8eaf-fc1f1027078c" style="width:56.25%" class="column"><h2 id="448bbdae-22cb-4e53-b2df-8588429bc18e" class="">💼 Experience</h2><ul id="74ae3ad6-e380-47f9-b7b1-419bf5406999" class="toggle"><li><details><summary><strong>Intern</strong> @ <span style="border-bottom:0.05em solid"><mark class="highlight-default"><strong><a href="https://www.touchdownvc.com/">Touchdown Ventures</a></strong></mark></span></summary><ul id="739599b2-af70-4a06-8518-e6371384b7d0" class="bulleted-list"><li style="list-style-type:disc">Winter &amp; Spring 2023: Supporting <strong><a href="https://abhealthventures.amerisourcebergen.com/investment-focus">Cencora Ventures</a></strong><strong> ($150M fund)</strong></li></ul><ul id="27dad420-97f5-4d3e-aa40-c55a7dfd397c" class="bulleted-list"><li style="list-style-type:disc">Summer &amp; Fall 2023: Supporting <strong><a href="https://olympusamerica.com/olympus-venture-capital">Olympus Innovation Ventures fund </a></strong></li></ul><ul id="e9aa0afb-d4de-4396-a10b-2a87110d5b70" class="bulleted-list"><li style="list-style-type:disc">Focused on evaluating startups within the minimally invasive surgery, medical technology, pulmonary, GI, urology, and digital health spaces</li></ul></details></li></ul><ul id="8090da5c-383d-4aa0-8325-8cef10cab5fa" class="toggle"><li><details><summary><strong>Business Development Associate @ </strong><mark class="highlight-default"><span style="border-bottom:0.05em solid"><strong><a href="https://surgery.duke.edu/divisions/surgical-sciences/research/research-laboratories/cell-death-laboratory">Duke Department of Surgery</a></strong></span></mark></summary><ul id="1ca0c264-a22c-4838-b76f-345ba7df97c0" class="bulleted-list"><li style="list-style-type:disc">Conducted research at <strong><a href="https://sites.duke.edu/consortium4ibc">Devi Lab</a></strong></li></ul><ul id="58b67055-4159-439c-9df8-2cc8dfc4a4c4" class="bulleted-list"><li style="list-style-type:disc">Worked on translation of diagnostic technology for earlier detection of inflammatory breast cancer</li></ul></details></li></ul><ul id="2f26f939-f43d-44bc-8537-4b3872413855" class="toggle"><li><details><summary><strong>Strategy Associate Intern @ </strong><span style="border-bottom:0.05em solid"><strong><a href="https://www.zs.com/">ZS</a></strong></span></summary><ul id="90a89026-0045-4081-b024-705e1e09fe87" class="bulleted-list"><li style="list-style-type:disc">Strategy consulting for the pharmaceutical industry</li></ul><ul id="9954fe25-1f8d-44dd-8e93-343dc85f4cda" class="bulleted-list"><li style="list-style-type:disc"><strong>Customer Insights:</strong> Fielding and analyzing physician data from physicians to inform a client’s marketing and sales rep strategy for their drug in a new therapeutic area</li></ul><ul id="f9de9da2-8992-4894-b153-b7f19991df67" class="bulleted-list"><li style="list-style-type:disc"><strong>Pipeline &amp; Launch Strategy:</strong> Constructing a situational analysis to see whether it would be a profitable move for a global pharmaceutical client to enter a rare disease industry</li></ul></details></li></ul><ul id="485ebb2a-2e97-4470-bb23-275e18a42bbd" class="toggle"><li><details><summary><strong>Product Development Intern</strong> <strong>@ </strong><span style="border-bottom:0.05em solid"><a href="https://www.bms.com/"><strong>Bristol-Myers Squibb</strong></a></span></summary><ul id="e5521dfa-4c49-4799-8a5f-d18ba5ac9971" class="bulleted-list"><li style="list-style-type:disc">Worked on the <strong>Drug Product Development</strong> team</li></ul><ul id="01fbc7f5-ac52-4055-bfe2-9f458a9e896d" class="bulleted-list"><li style="list-style-type:disc">Exploring applications of AI in pharmaceutical formulation development</li></ul><ul id="d0f45fe9-c4d3-4e2e-bca2-badb7fcace12" class="bulleted-list"><li style="list-style-type:disc">1) conducting <strong>comprehensive literature search </strong>on AI in pharma formulation development, 2) identifying <strong>internal &amp; external capabilities</strong> for implementing AI/ML in formulation development, and 3) <strong>building a database</strong> of compounds suitable for AI training, validation, and testing</li></ul></details></li></ul><ul id="9acee484-1d93-4dab-b4e0-04f5950daaec" class="toggle"><li><details><summary><strong>Data Science Intern @ </strong><span style="border-bottom:0.05em solid"><a href="https://www.bms.com/"><strong>Bristol-Myers Squibb</strong></a></span></summary><ul id="278bde6a-9ec3-4e77-82ba-21fa54d34a0f" class="bulleted-list"><li style="list-style-type:disc">Worked on the <strong>Translational Medicine</strong> and <strong>Informatics &amp; Predictive Sciences</strong> teams</li></ul><ul id="2113c4ad-fb75-42d7-84fe-b1d7742f3ab1" class="bulleted-list"><li style="list-style-type:disc">Analyzed whole-genome sequencing data to find areas of genomic instability for Multiple Myeloma and DLBCL patients </li></ul><ul id="bbc81de0-047e-43fd-8ad6-1b3a948ad59c" class="bulleted-list"><li style="list-style-type:disc">Worked with computing environments such as AWS S3, Docker, and RStudio</li></ul></details></li></ul><p id="323eb923-25b7-4cc6-855d-4ba63cdac2c8" class="">
+</p></div></div><hr id="03096781-5587-468a-b828-c1248ff9b888"/><div id="b10479fc-016f-4700-9bc8-83a64fa1d8b0" class="column-list"><div id="da65d491-b414-478d-9ae2-b57fedbb1844" style="width:43.75%" class="column"><h2 id="168a49d0-7812-49f4-9524-c2d58ec6ca3c" class="">👔 Leadership</h2><ul id="5f082366-5857-48df-8a68-654ff63c5347" class="toggle"><li><details><summary><strong>Co-Founder &amp; Managing Partner</strong> @ <span style="border-bottom:0.05em solid"><strong><a href="https://www.dukeinnovationstudio.com/">Duke Innovation Studio</a></strong></span></summary><ul id="763e09c3-db61-48e7-9b62-44f867963bb5" class="bulleted-list"><li style="list-style-type:disc">Innovation Studio is the <strong>first startup accelerator and entrepreneurship community at Duke</strong></li></ul><ul id="be8c3c22-5ee0-4703-8129-246934eaee45" class="bulleted-list"><li style="list-style-type:disc">I have worked with <strong>11 student founders</strong> to connect them with engineering talent and business-side mentorship to bring their ideas to reality</li></ul><ul id="2881a23f-97f8-4e17-a45d-f29cdcda2779" class="bulleted-list"><li style="list-style-type:disc">I’ve worked with a <strong>diverse range of startups</strong>, from an augmented reality tool for surgical technology to a creditworthiness validation platform for African rental property financing spaces</li></ul><ul id="76e13d77-a6f7-4f9c-bed9-c1ef80d8d184" class="bulleted-list"><li style="list-style-type:disc"><strong>Secured over $50,000 from the Duke Innovation &amp; Entrepreneurship Department to fund our Spring 2022 cohort</strong></li></ul><ul id="568f4fc6-093a-4d42-a444-1c4afb0074c9" class="bulleted-list"><li style="list-style-type:disc">Organized multiple Demo Day events for startups to showcase their products, inviting over 50 investors and faculty</li></ul></details></li></ul><ul id="29456aca-17c1-497c-90f8-3718835d0a34" class="toggle"><li><details><summary><strong>Resident Assistant</strong> <strong>@ </strong><span style="border-bottom:0.05em solid"><strong><a href="https://students.duke.edu/living/housing/">Duke Housing &amp; Residence Life</a></strong></span></summary><ul id="896544b9-6b97-4035-b080-157031fc4f97" class="bulleted-list"><li style="list-style-type:disc">Some of my responsibilities included hosting programming and engaging with more than 100 residents to build a welcoming community for all students, in addition to helping residents resolve conflict and connect to campus resources</li></ul><ul id="3d6677b9-2739-491f-93fa-2578910fb4de" class="bulleted-list"><li style="list-style-type:disc">Being an RA helped me step outside my comfort zone and grow as a leader in my senior year</li></ul></details></li></ul><ul id="31f6fc8f-c42a-43dd-8f6f-5395c50a5b75" class="toggle"><li><details><summary><strong>Project Lead @ </strong><span style="border-bottom:0.05em solid"><strong><a href="https://dukeunccasecompetition.web.unc.edu/">Duke-UNC National Healthcare Case Competition</a></strong></span></summary><ul id="15867219-ebb7-4d50-82f8-f282a25ff1d2" class="bulleted-list"><li style="list-style-type:disc"><strong>Only undergraduate student from my school</strong> selected to participate in the competition</li></ul><ul id="e6afbab7-17b7-41f9-94bb-a136f19613b2" class="bulleted-list"><li style="list-style-type:disc">Worked alongside a team of Master’s and PhD candidates on <strong>advising a mock US-based biopharmaceutical client</strong> with a <strong>commercial assessment</strong> of their lead asset targeting postpartum depression (PPD)</li></ul><ul id="cd012bd6-1a5f-4208-89bd-27f34d599400" class="bulleted-list"><li style="list-style-type:disc"><strong>Goal:</strong> provide the CEO with an overview of the market landscape and an estimate of the commercial opportunity for PPD, with the rationale to support the decision</li></ul><ul id="00166f6f-74f3-4d52-90f7-496be676517b" class="bulleted-list"><li style="list-style-type:disc">Built and <strong>presented slide deck</strong> to summarize our findings <span style="border-bottom:0.05em solid"><strong><a href="https://drive.google.com/file/d/1T4QHgNuV7VkmV_wt0OIRnFcAh4pMXPVw/view?usp=sharing">here</a></strong></span></li></ul><p id="1246f506-bc66-4601-869d-c57f44646265" class="">
+</p></details></li></ul><p id="f744e35f-7cc1-4925-8677-e37506452eb1" class="">
+	<script>
+function toggleDarkMode() {
+    const body = document.body;
+    const toggleIcon = document.getElementById('toggleIcon');
+    const isDarkMode = body.classList.toggle('dark-mode');
+
+    // Directly change the icon based on the dark mode state
+    if (isDarkMode) {
+        toggleIcon.textContent = '🌚'; // Moon icon for dark mode
+		toggleIcon.classList.add('icon-right'); // Move the icon to the right
+
+    } else {
+        toggleIcon.textContent = '🌞'; // Sun icon for light mode
+		toggleIcon.classList.remove('icon-right'); // Keep the icon on the left
+    }
+
+    // Update the checkbox and local storage
+    document.querySelector('.switch input').checked = isDarkMode;
+    localStorage.setItem('darkMode', isDarkMode);
+}
+
+// Load the correct mode on start
+document.addEventListener('DOMContentLoaded', (event) => {
+    const isDarkMode = localStorage.getItem('darkMode') === 'true';
+    document.body.classList.toggle('dark-mode', isDarkMode);
+    document.getElementById('modeToggle').checked = isDarkMode;
+    if (isDarkMode) {
+        document.getElementById('toggleIcon').textContent = '🌚';
+        document.getElementById('toggleIcon').classList.add('icon-right');
+    } else {
+        document.getElementById('toggleIcon').textContent = '🌞';
+        document.getElementById('toggleIcon').classList.remove('icon-right');
+    }
+});
+
+	  </script>
+</p></div><div id="c8046f0a-3768-433f-94fa-ef2f9d7bff51" style="width:56.25%" class="column"><h2 id="c2b1d171-b1af-455b-ad2c-40766dde559f" class="">🔨 Projects </h2><ul id="57b8b095-de65-4c16-9634-5af9f7acfc0d" class="toggle"><li><details><summary><strong>Senior Design Project:</strong> <span style="border-bottom:0.05em solid"><a href="https://docs.google.com/presentation/d/1bYxD6Hk5U7DPSU7pCZhOlc3uYKQYhlaH/edit?usp=sharing&amp;ouid=118209429079252086965&amp;rtpof=true&amp;sd=true"><strong>Preventing Bacterial Aerosolization from CardioQuip Cooler Heater Device</strong></a></span><strong> </strong></summary><ul id="1a378b9a-9ad9-4ba2-9eb4-2ba8237912e2" class="bulleted-list"><li style="list-style-type:disc">1 of 20 students selected for the <a href="https://bme.duke.edu/undergrad/bme-design-fellows"><span style="border-bottom:0.05em solid"><strong>BME Design Fellows</strong></span></a> program, an intensive design program for BME students interested in pursuing careers in medical technology</li></ul><ul id="28935255-b853-4f6f-8da4-6680d2be3b7b" class="bulleted-list"><li style="list-style-type:disc">Every year, there are over 250,000 open heart procedures done in the US with the help of a cardiopulmonary bypass machine and a heater cooler unit which maintains the patient blood temperatures during the surgery</li></ul><ul id="6785ad61-0748-4d30-9e98-fb87143e33ba" class="bulleted-list"><li style="list-style-type:disc"><strong>Client:</strong> <strong><a href="https://pathology.duke.edu/">Duke Department of Pathology</a></strong></li></ul><ul id="1ac9f8fb-0959-4982-99b5-c27fffb9e4a0" class="bulleted-list"><li style="list-style-type:disc"><strong>Problem:</strong> There is mycobacteria growing in the water tank which can be released into the air of the operating room, infiltrate the heart surgery patients and lead to potentially fatal infections</li></ul><ul id="1e5f510d-25a3-4018-b875-8d207846e687" class="bulleted-list"><li style="list-style-type:disc"><strong>Goal:</strong> Prevent the escape and aerosolization of bacteria from CardioQuip MCH-1000(i) heater/cooler unit water tanks used during cardiac bypass surgery in the Duke Hospital operating room environment</li></ul><ul id="6bcdbaf1-f799-4a9e-b1bd-aedd25ecb0f0" class="bulleted-list"><li style="list-style-type:disc">Presented solution and a research poster at the <span style="border-bottom:0.05em solid"><strong><a href="https://calendar.duke.edu/show?fq=id%3ACAL-8a0182b3-870a191e-0187-903a1f59-00002e76demobedework%40mysite.edu">2023 Duke BME Design Symposium</a></strong></span></li></ul></details></li></ul><ul id="13d3ddb0-ebf1-469d-a4c2-8f426f6a4c07" class="toggle"><li><details><summary><span style="border-bottom:0.05em solid"><a href="https://bigdata.duke.edu/projects/human-activity-recognition-using-physiological-data-from-wearables/"><strong>Human Activity Recognition using Deep Learning</strong></a></span><strong> </strong></summary><ul id="196e4ec9-c57c-40ba-b98a-9e3350f472cd" class="bulleted-list"><li style="list-style-type:disc">Traditional Human Activity Recognition (HAR) utilizes accelerometry (movement) data to classify activities</li></ul><ul id="e275ecc9-36e0-46c6-80f1-f3048d80365a" class="bulleted-list"><li style="list-style-type:disc">On a team of 4, I examined using physiological sensors to improve HAR accuracy and generalizability</li></ul><ul id="bb95a482-e145-4be7-b862-25325a65d441" class="bulleted-list"><li style="list-style-type:disc">I developed traditional machine learning and deep learning models that are available open source in the <strong><a href="https://dbdp.org/">Digital Biomarker Discovery Pipeline (DBDP)</a></strong> to enable other researchers and clinicians to make useful insights in the field of HAR</li></ul><ul id="7b7364b0-01ac-4eb5-b3f8-84e74b18928d" class="bulleted-list"><li style="list-style-type:disc">Presented poster at <strong><a href="https://bigdata.duke.edu/">Data+ Symposium</a></strong><strong>: </strong><a href="https://bigdata.duke.edu/wp-content/uploads/2022/07/Team-4.pdf?x14489"><strong>“Human Activity Recognition using Physiological Data from Wearables”</strong></a></li></ul></details></li></ul><ul id="93f2ea3c-1be6-478b-a2e6-da906f99bd50" class="toggle"><li><details><summary><a href="https://www.dukehealth.org/clinical-trials/directory/pro00025110"><strong>Hyperpolarized Xenon MRI for Pulmonary Function </strong></a></summary><ul id="c128749b-fe99-4f87-b0af-cd53e4945aee" class="bulleted-list"><li style="list-style-type:disc">Worked in the <strong><a href="https://sites.duke.edu/driehuyslab/">Driehuys Lab</a></strong></li></ul><ul id="dce398ee-0f70-4ee3-9b97-df6cc04d69c4" class="bulleted-list"><li style="list-style-type:disc">Researched the application of hyperpolarized 129Xe MRI technology for high-resolution imaging of pulmonary function</li></ul><ul id="1c55c52d-7cbe-4667-abbc-8705571b6db9" class="bulleted-list"><li style="list-style-type:disc">Delivered pulmonary ventilation data analysis reports for patient MRI scans in clinical setting</li></ul><ul id="6ce5bf7d-c63a-4978-a7f4-ab48b292a60c" class="bulleted-list"><li style="list-style-type:disc">Committed updates to pipeline code in Python &amp; MATLAB to optimize report efficiency and enhance visualizations</li></ul></details></li></ul><ul id="3b8ef228-0acf-48a9-9f27-9315d7b66c44" class="toggle"><li><details><summary><a href="https://docs.google.com/document/d/1CsFGzbfKS0qJSRnC-CJSRxPMOq6ekWZ8SeLMjKnWNZU/edit"><strong>Targeted Advertising: An Optimization Problem</strong></a><strong> </strong></summary><ul id="a17a287c-8386-4897-8d68-c49a369b13d7" class="bulleted-list"><li style="list-style-type:disc">Project submission for 2019 <span style="border-bottom:0.05em solid"><strong><a href="https://stat.duke.edu/events/duke-datathon">Duke Datathon</a></strong></span></li></ul><ul id="19422c16-f7f5-48aa-8f4a-aa9f7fbc7272" class="bulleted-list"><li style="list-style-type:disc"><strong>Background:</strong> Consulting with Valassis: Marketing Technology &amp; Consumer Engagement to utilize customer interest and action data to analyze what shoppers are most likely to engage with their marketing technology and convert into revenue</li></ul><ul id="9258dd2c-4813-45d5-a970-104489e3c1e1" class="bulleted-list"><li style="list-style-type:disc"><strong>Primary Work:</strong> Training machine learning classification models on pre-processed data and optimizing model accuracy based on classification, using feature selection &amp; random forest classifier to analyze variable importance</li></ul><ul id="c81ce0cb-44da-4559-a75a-b4c39168158f" class="bulleted-list"><li style="list-style-type:disc"><strong>Results:</strong> Produced insightful conclusions about Valassis dataset and published technical consulting report</li></ul></details></li></ul><ul id="158e765e-23b8-4c76-90f7-1d9821b6f765" class="toggle"><li><details><summary><a href="https://drive.google.com/file/d/1fcYFSAXeLwPQUyfjEEclgdCZoqT1sVFH/view?usp=sharing"><strong>Bioreactor Bag Calculator</strong></a><strong> </strong></summary><ul id="30742f93-1d17-4aba-826d-00d1bf35b08a" class="bulleted-list"><li style="list-style-type:disc">Project Submission for <a href="https://fyd.duke.edu/"><span style="border-bottom:0.05em solid"><strong>Pratt School of Engineering First-Year Design</strong></span></a> </li></ul><ul id="051ca465-27dc-46c4-a428-421ca2a8e283" class="bulleted-list"><li style="list-style-type:disc"><strong>Background:</strong> The Marcus Center for Cellular Cures at Duke University has two bioreactors that grow cells used in biotherapies to treat diseases such as autism, cerebral palsy, &amp; stroke, given a constant media flow rate which could have up to 20% error</li></ul><ul id="37505274-3aed-4a2e-b9d2-6f7903c6c3f6" class="bulleted-list"><li style="list-style-type:disc"><strong>Primary Work:</strong> Developing a method to accurately measure the remaining volume of cell media in a bioreactor bag and determine when the bag will be empty so that the media does not run out, to save the lab’s time and money</li></ul><ul id="a7259d0e-aed2-404f-807f-575911c3a28e" class="bulleted-list"><li style="list-style-type:disc"><strong>Results:</strong> Assembled a functional final prototype to be tested by clients before implementation</li></ul></details></li></ul><ul id="e4b33e72-72a3-469d-bc15-2b77caf93ae6" class="toggle"><li><details><summary><strong><a href="https://github.com/kg227-dev/CS216-Project">Modeling Fantasy Football Statistics</a></strong></summary><ul id="fd1121a9-c0f8-42ef-9f15-9f934200cf53" class="bulleted-list"><li style="list-style-type:disc"><strong>Background:</strong> Predicting 2019 Week 9 NFL fantasy football player points based on 2017 &amp; 2018 Season, 2019 Weeks 1-8</li></ul><ul id="58f10b22-ccd9-47c4-bce5-0a55a44fb0ec" class="bulleted-list"><li style="list-style-type:disc"><strong>Primary Work:</strong> Incorporated lagging time series variables into multiple linear regression, utilizing normalization, regularization, and feature selection with Principal Component Analysis (PCA) in a statistical model</li></ul><ul id="0a763571-b3dd-4390-b93e-14a32d16d1e2" class="bulleted-list"><li style="list-style-type:disc"><strong>Results:</strong> Evaluated predictive accuracy (RMSE) was ± 2.7 points for QBs, ± 6.4 points for RB/TE/WRs</li></ul></details></li></ul><ul id="abf0d295-2783-465b-b65c-c8691e7b67c8" class="toggle"><li><details><summary><strong><a href="https://wssp.rutgers.edu/">Waksman Student Scholars Program</a></strong><strong> </strong></summary><ul id="32c40428-f2bf-4ef2-b86e-caa2c95177cd" class="bulleted-list"><li style="list-style-type:disc">Summer 2018 project submission at <span style="border-bottom:0.05em solid"><strong><a href="https://www.waksman.rutgers.edu/">Rutgers University Waksman Institute of Microbiology </a></strong></span></li></ul><ul id="a12864b5-8ad1-44b2-9a31-6be45df20cb6" class="bulleted-list"><li style="list-style-type:disc"><strong>Published</strong> <em>Landoltia punctata</em> cDNA Sequence Analysis in <span style="border-bottom:0.05em solid"><strong><a href="https://www.ncbi.nlm.nih.gov/nuccore/1435204456">NCBI biotechnology database</a></strong></span></li></ul><ul id="7e376d0a-2c49-4e26-aac6-b8e3ad8e9bae" class="bulleted-list"><li style="list-style-type:disc"><strong>Investigated</strong> cDNA sequence protein homolog &amp; presented <strong><a href="https://docs.google.com/presentation/d/1q8eyo3n6A4ZlXA532pHoTyQ6ywhCzrGrAqyhlfNlnmE/edit#slide=id.g3d9b6bc001_3_19">poster</a></strong><strong> </strong>at Summer 2018  Symposium</li></ul><ul id="df0f7bae-1d7f-4299-a093-5f088fda8f4a" class="bulleted-list"><li style="list-style-type:disc"><strong>Implemented</strong> findings as year-round TA for inaugural Research in Molecular Biology course at Phillipsburg High School</li></ul><ul id="0888f707-7ab3-4bf4-bd9c-7d47c2f7eba9" class="bulleted-list"><li style="list-style-type:disc"><strong>Trained</strong> students in conducting the laboratory pipeline (cDNA purification &amp; isolation) and DNA sequence analysis pipeline</li></ul><ul id="cf26d95b-fbca-4b4f-a034-8d44916c4645" class="bulleted-list"><li style="list-style-type:disc"><strong>Authorized</strong> 25 clone sequence reports from my high school to WSSP at Rutgers University at the end of 2018-2019 Academic Session</li></ul></details></li></ul></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
